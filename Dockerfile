@@ -73,6 +73,12 @@ RUN git clone https://github.com/ncopa/su-exec.git /mumble/repo/su-exec \
 
 FROM base AS mumble
 # Standard docker image with mumble as PID 1
+ARG MUMBLE_VERSION=latest
+LABEL org.opencontainers.image.source="https://github.com/mumble-voip/mumble" \
+      org.opencontainers.image.description="Mumble is an open-source, low-latency, high quality voice chat software." \
+      org.opencontainers.image.version="${MUMBLE_VERSION}" \
+      org.opencontainers.image.url="https://github.com/mumble-voip/mumble-docker" \
+      org.opencontainers.image.documentation="https://www.mumble.info/documentation/"
 COPY --from=build /mumble/repo/build/mumble-server /usr/bin/mumble-server
 COPY --from=build /mumble/repo/default_config.ini /etc/mumble/bare_config.ini
 COPY --from=build --chmod=755 /mumble/repo/su-exec/su-exec /usr/local/bin/su-exec
