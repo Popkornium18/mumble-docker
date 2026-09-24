@@ -61,7 +61,7 @@ ARG MUMBLE_VERSION=latest
 ARG MUMBLE_BUILD_NUMBER=""
 ARG MUMBLE_CMAKE_ARGS=""
 # renovate: datasource=github-tags depName=ncopa/su-exec
-ARG SU_EXEC_VERSION=v0.2
+ARG SU_EXEC_VERSION=v0.3
 
 # Clone the repo, build it and finally copy the default server ini file. Since this file may be at different locations and Docker
 # doesn't support conditional copies, we have to ensure that regardless of where the file is located in the repo, it will end
