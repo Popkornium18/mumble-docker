@@ -189,7 +189,7 @@ else
 	set_config "port" 64738 true
 	set_config "users" 100 true
 
-	if [[ -n "$ACME_DOMAIN" || -n "$ACME_LEGO_CMD" ]]; then
+	if [[ -n "$ACME_DOMAIN" || -n "$ACME_LEGO_ARGS" ]]; then
 		if array_contains "used_configs" "sslCert" || array_contains "used_configs" "sslKey"; then
 			log "[WARNING] Overwriting sslKey/sslCert config since automatic certificate management is enabled"
 		fi
@@ -229,7 +229,7 @@ if [[ "$(id -u)" = "0" ]] && [[ "${PUID}" != "0" ]] && [[ "${MUMBLE_CHOWN_DATA}"
 	chown -R ${PUID}:${PGID} /data
 fi
 
-if [[ -n "$ACME_DOMAIN" || -n "$ACME_LEGO_CMD" ]]; then
+if [[ -n "$ACME_DOMAIN" || -n "$ACME_LEGO_ARGS" ]]; then
 	while [[ ! -f "/data/acme/mumble.crt" ]]; do
 		log "Waiting for '/data/acme/mumble.crt' to be created"
 		sleep 20

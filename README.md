@@ -129,7 +129,7 @@ In order to make use of this feature you have to mount a persistent volume to `/
 
 If you have special requirements you can set the `ACME_LEGO_ARGS` variable to make use of all features of `lego`.
 The contents of this variable will be appended to `lego run`.
-If you do so, you may omit all other `ACME_*` variables, but have to set the same values in your `ACME_LEGO_CMD` manually.
+If you do so, you may omit all other `ACME_*` variables, but have to set the same values in your `ACME_LEGO_ARGS` manually.
 Please do not include the `run` or `renew` subcommands, as these will be appended by the certificate management script.
 
 #### Differences between the regular image and the `-acme` image
