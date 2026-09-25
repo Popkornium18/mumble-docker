@@ -60,6 +60,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 ARG MUMBLE_VERSION=latest
 ARG MUMBLE_BUILD_NUMBER=""
 ARG MUMBLE_CMAKE_ARGS=""
+# renovate: datasource=github-tags depName=ncopa/su-exec
 ARG SU_EXEC_VERSION=v0.3
 
 # Clone the repo, build it and finally copy the default server ini file. Since this file may be at different locations and Docker
